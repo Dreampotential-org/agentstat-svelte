@@ -1,4 +1,16 @@
 <script>
+    import { isAuthenticated } from "../../lib/api/auth";
+  let is_authenticated = isAuthenticated();
+  function startFreeTrial() {
+        console.log("Start free trial button clicked");
+        if (is_authenticated) {
+            console.log("User is authenticated, redirecting to home page");
+            window.location.href = "/home"; // Change this to the actual home page URL
+        } else {
+            console.log("User is not authenticated, redirecting to login page");
+            window.location.href = "/login"; // Change this to the actual login page URL
+        }
+    }
   import { FooterDashboard, NavBar } from "../../components";
   let showParagraph1 = false;
   let showParagraph2 = false;
@@ -66,12 +78,31 @@ function handleClick1() {
         <p>AgentStat Referral system allows you to send referrals with esignature system.
         </p>
         <p></p>
-        <button>Start free trial</button>
+        <button on:click={startFreeTrial}>Start free trial</button>
       </div>
       <div class="miniContainer2">
+        <img alt="img1" src="/images/image2OfSub.png"> 
       </div>
     </div>
   </div>
+  
+  <div class="mainContainerContainer1">
+    <div class="container1">
+      <div class="miniContainer1">
+        <h1>Expert-level emails and scripts</h1>
+        <p>
+          AgentStat crafts expert level email and sales scripts trained on
+          communications from top producing agents, so you always have the right
+          words to say.
+        </p>
+        <button on:click={startFreeTrial}>Start free trial</button>
+      </div>
+      <div class="miniContainer2">
+        <img alt="img1" src="/images/image1OfSub.png"> 
+      </div>
+    </div>
+  </div>
+
 
   <div class="mainContainerContainer1">
     <div class="container1">
@@ -82,9 +113,10 @@ function handleClick1() {
           communications from top producing agents, so you always have the right
           words to say.
         </p>
-        <button>Start free trial</button>
+        <button on:click={startFreeTrial}>Start free trial</button>
       </div>
       <div class="miniContainer2">
+        <img alt="img1" src="/images/image3OfSub.png"> 
       </div>
     </div>
   </div>

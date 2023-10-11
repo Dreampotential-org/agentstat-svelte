@@ -61,9 +61,14 @@ body{
 }
 .miniContainer2{
     height: 100%;
-    background-image: url("https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg");
     background-size: cover;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.miniContainer2 img{
+    height: 300px;
 }
 
 

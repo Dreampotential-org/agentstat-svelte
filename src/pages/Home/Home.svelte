@@ -41,12 +41,12 @@
     <SearchBar on:load on:search={updateParams} />
   </div>
   <div class="video-box">
-    <video loop autoplay muted>
+    <!-- <video loop autoplay muted>
       <source
         src="https://realtorstat.com/video/GETSTAT-7-11.10.2020.mp4"
         type="video/mp4"
       />
-    </video>
+    </video> -->
   </div>
   {#if !is_authenticated}
   {#if currentPage != "/Ai"}
