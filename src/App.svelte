@@ -281,6 +281,7 @@
   });
 </script>
 
+<Tailwindcss />
 <Notification show={$notif.show} msg={$notif.msg} error={$notif.error} />
 <Modal />
 <main>
