@@ -1,7 +1,5 @@
 <script>
-  import { PUBLIC_GOOGLE_KEY } from "$env/static/public";
-
-  import img from "$lib/images/img.jpg";
+  let GOOGLE_KEY = "AIzaSyCFH-yKmfPyaa18_uYUwVWb7THj-b1hymE";
   export let home_type = "";
   export let agent_full_name = "";
   export let address_text = "";
@@ -18,14 +16,14 @@
   export let s2l_ratio = "";
   export let city = "";
   export let geo_location = [];
-  const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${PUBLIC_GOOGLE_KEY}`;
+  const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
 <div
   class="drop-shadow-2xl rounded-lg shadow bg-gray-800 border-gray-700 grid grid-cols-4 gap-1 place-items-start"
 >
   {#key getImage}
-    <img class="rounded-l-lg h-80" src={getImage || img} alt="" />
+    <img class="rounded-l-lg h-80" src={getImage} alt="" />
   {/key}
   <div class="p-5 w-max h-full flex flex-col justify-start items-start">
     <h5

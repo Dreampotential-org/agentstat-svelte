@@ -1,14 +1,11 @@
 <script>
-  import Card from "./components/Card/card.svelte";
-  import { PUBLIC_API_baseURL } from "$env/static/public";
-  import { goto } from "$app/navigation";
-  import { topOrBottom, city, state } from "../../stores/homes";
+  import page from "page";
   import { onMount } from "svelte";
+  import { loadHomes, loadStates } from "../../lib/api/allhomes";
+  import { topOrBottom, state, city } from "../../stores/homes";
+  import Card from "../../components/Card/card.svelte";
 
-  export let data;
-  export let form;
-
-  let allStates = [...Object.entries(data?.allStates)];
+  let baseURL = "https://app.realtorstat.com/api/";
   let isLoading = false;
   $: searchedData = [];
   $: searchResults = [];
@@ -17,39 +14,27 @@
 
   let keyword = [];
 
-  const getResult = async () => {
-    let allResults = await fetch(
-      `${PUBLIC_API_baseURL}${$topOrBottom}/state/${$state}/city/${$city}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-
-    let getData = await allResults.json();
-    console.log("url", getData.geo_location);
-    return getData;
-  };
+  let allStates = [];
 
   onMount(async () => {
     isLoading = true;
-    let resultJson = await getResult();
+    let resultJson = await loadHomes();
     searchedData = [...resultJson];
     isLoading = false;
+    let resultStates = await loadStates();
+    allStates = [...Object.entries(resultStates.allStates)];
   });
 
-  onMount(() => {
-    const isBrowser = typeof window !== "undefined";
-    if (isBrowser) {
-      if (localStorage.getItem("topOrBottom") === null) {
-        localStorage.setItem("topOrBottom", "top_ten");
-      } else {
-        $topOrBottom = localStorage.getItem("topOrBottom");
-      }
-    }
-  });
+  const autocompleteOnChange = async (ac) => {
+    keyword = ac.city_state;
+    searchResults = [];
+    isLoading = true;
+    $city = ac?.city;
+    $state = ac?.state;
+    let searchResultJson = await loadHomes();
+    searchedData = [...searchResultJson];
+    isLoading = false;
+  };
 
   const changeType = async () => {
     isLoading = true;
@@ -64,25 +49,13 @@
       localStorage.setItem("topOrBottom", "top_ten");
       $topOrBottom = "top_ten";
     }
-    let newResultJson = await getResult();
+    let newResultJson = await loadHomes();
     searchedData = [...newResultJson];
     isLoading = false;
   };
 
-  const autocompleteOnChange = async (ac) => {
-    keyword = ac.city_state;
-    searchResults = [];
-    isLoading = true;
-    $city = ac?.city;
-    $state = ac?.state;
-    let searchResultJson = await getResult();
-    searchedData = [...searchResultJson];
-    isLoading = false;
-  };
-
   async function getItems(e) {
-    const url =
-      `${PUBLIC_API_baseURL}city-search/` + encodeURIComponent(e.target.value);
+    const url = `${baseURL}city-search/` + encodeURIComponent(e.target.value);
     const response = await fetch(url);
     const searchData = await response.json();
     searchResults = [...searchData];
@@ -100,8 +73,8 @@
       class="grid gap-4 grid-cols-9 my-10 p-4 rounded-md bg-gray-700 items-center"
     >
       <div
-        on:click={() => goto("/allhomes")}
-        class="text-2xl font-bold text-white col-span-6 cursor-pointer"
+        on:click={() => page.redirect("/allhomes")}
+        class="text-2xl font-bold text-white col-span-5 cursor-pointer"
       >
         Top 10 {$topOrBottom === "top_ten" ? "Highest" : "Lowest"} priced homes sold
         in Your City
@@ -109,7 +82,7 @@
       <button
         on:click={changeType}
         type="submit"
-        class="text-blue-400 font-bold text-lg cursor-pointer"
+        class="text-blue-400 font-bold text-lg cursor-pointer col-span-2"
       >
         Check {$topOrBottom === "top_ten" ? "Bottom Ten" : "Top Ten"}
       </button>
@@ -165,12 +138,12 @@
       </p>
       <div class="grid grid-cols-5 gap-2">
         {#each allStates as [key, state]}
-          <p
-            on:click={() => goto(`/state/${key}`)}
+          <a
+            href={`/state/${key}`}
             class="text-sm text-blue-700 pr-20 cursor-pointer"
           >
             {state}
-          </p>
+          </a>
         {/each}
       </div>
     </div>
