@@ -10,7 +10,7 @@
   import { loadStripe } from "@stripe/stripe-js";
   import { Elements, PaymentElement } from "svelte-stripe";
 
-  export let data;
+  // export let data;
 
   let stripe;
   let elements;

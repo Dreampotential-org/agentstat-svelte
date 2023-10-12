@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { loadHomes, loadStates } from "../../lib/api/allhomes";
   import { topOrBottom, state, city } from "../../stores/homes";
-  import Card from "../../components/Card/card.svelte";
+  import Card from "../../components/Card/Card.svelte";
 
   let baseURL = "https://app.realtorstat.com/api/";
   let isLoading = false;
