@@ -6,7 +6,7 @@
     StatesLinks,
   } from "../../components";
   import { getAgentUrlParams } from "../../lib/api";
-  import { isAuthenticated} from "../../lib/api/auth";
+  import { isAuthenticated } from "../../lib/api/auth";
   import { onMount } from "svelte";
   let currentPage;
 
@@ -41,24 +41,23 @@
     <SearchBar on:load on:search={updateParams} />
   </div>
   <div class="video-box">
-    <!-- <video loop autoplay muted>
+    <video loop autoplay muted>
       <source
         src="https://realtorstat.com/video/GETSTAT-7-11.10.2020.mp4"
         type="video/mp4"
       />
-    </video> -->
+    </video>
   </div>
   {#if !is_authenticated}
-  {#if currentPage != "/Ai"}
-  <a href="/Ai">Here is our latest feature! TRY OUR AI.</a>
-  {/if}
+    {#if currentPage != "/Ai"}
+      <a href="/Ai">Here is our latest feature! TRY OUR AI.</a>
+    {/if}
   {/if}
   {#if is_authenticated}
-  {#if currentPage != "/Ai"}
-  <a href="/Ai">Here is our latest feature! TRY OUR AI.</a>
+    {#if currentPage != "/Ai"}
+      <a href="/Ai">Here is our latest feature! TRY OUR AI.</a>
+    {/if}
   {/if}
-  {/if}
-
 </section>
 <StatesLinks />
 <FooterDashboard />
