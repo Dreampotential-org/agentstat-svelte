@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import page from "page";
+  import Tailwindcss from "./Tailwind.svelte";
+
   import {
     Home,
     AboutUs,
