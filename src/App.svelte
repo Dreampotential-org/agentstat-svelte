@@ -28,11 +28,12 @@
     SMS,
     Social,
     Checkout,
-    checkout_payment
+    checkout_payment,
   } from "./pages";
   import { Notification, Modal } from "./components";
   import { notif } from "./stores/notif";
-
+  import AllHomes from "./pages/AllHomes/AllHomes.svelte";
+  import State from "./pages/State/State.svelte";
   import { isAuthenticated, currentUser } from "./lib/api/auth";
   import { setReferral } from "./lib/api/referral";
 
@@ -44,69 +45,79 @@
 
   let active = Home;
   let props = {};
-  
-  setReferral()
 
-  page("/checkout", ctx => {
+  setReferral();
+
+  page("/checkout", (ctx) => {
     active = Checkout;
     props = {};
   });
 
-  page("/", ctx => {
+  page("/", (ctx) => {
     active = Home;
     props = {};
   });
 
-  page("/checkout/payment", ctx => {
+  page("/allhomes", (ctx) => {
+    active = AllHomes;
+    props = {};
+  });
+
+  page("/state/:stateName", (ctx) => {
+    active = State;
+    props = ctx.params;
+  });
+
+  page("/checkout/payment", (ctx) => {
     active = checkout_payment;
     props = {};
   });
 
-  page("/about-us", ctx => {
+  page("/about-us", (ctx) => {
     active = AboutUs;
     props = {};
   });
-  page("/Ai", ctx => {
+  page("/Ai", (ctx) => {
     active = AI;
     props = {};
   });
-  page("/Subscription", ctx => {
+  page("/Subscription", (ctx) => {
     active = Subscription;
     props = {};
   });
-  page("/Website", ctx => {
+  page("/Website", (ctx) => {
     active = Website;
     props = {};
   });
-  page("/Email", ctx => {
+  page("/Email", (ctx) => {
     active = Email;
     props = {};
   });
-  page("/Script", ctx => {
+  page("/Script", (ctx) => {
     active = Script;
     props = {};
   });
-  page("/SocialFacebook", ctx => {
+  page("/SocialFacebook", (ctx) => {
     active = SocialFacebook;
     props = {};
   });
-  page("/SocialInstagram", ctx => {
+  page("/SocialInstagram", (ctx) => {
     active = SocialInstagram;
     props = {};
   });
-  page("/SocialLinkdin", ctx => {
+  page("/SocialLinkdin", (ctx) => {
     active = SocialLinkdin;
     props = {};
   });
-  page("/Photo", ctx => {
+  page("/Photo", (ctx) => {
     active = Photo;
     props = {};
   });
-  page("/SMS", ctx => {
+  page("/SMS", (ctx) => {
     active = SMS;
     props = {};
   });
-  page("/Social", ctx => {
+  page("/Social", (ctx) => {
     active = Social;
     props = {};
   });
@@ -124,36 +135,36 @@
     active = PasswordResetConfirm;
     props = ctx.params;
   });*/
-  
-  page("/agents", ctx => {
-    console.log(location.href)
+
+  page("/agents", (ctx) => {
+    console.log(location.href);
     active = Agents;
     props = {};
   });
 
-  page("/login", ctx => {
+  page("/login", (ctx) => {
     if (isAuthenticated()) {
       page.redirect("/profile-settings");
       return;
     }
     active = Login;
   });
-  page("/profile/:name", ctx => {
+  page("/profile/:name", (ctx) => {
     active = Profile;
     props = ctx.params;
   });
-  page("/profile/:name/:custom", ctx => {
+  page("/profile/:name/:custom", (ctx) => {
     active = Profile;
     props = ctx.params;
   });
 
-  page("/verify-email/:key", ctx => {
+  page("/verify-email/:key", (ctx) => {
     active = VerifyEmail;
     props = ctx.params;
   });
 
   // Dashboard
-  page("/profile-settings", ctx => {
+  page("/profile-settings", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -166,7 +177,7 @@
     props = {};
   });
 
-  page("/connect-profile", ctx => {
+  page("/connect-profile", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -179,7 +190,7 @@
     props = {};
   });
 
-  page("/inbox", ctx => {
+  page("/inbox", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -189,10 +200,10 @@
       return;
     }
     active = Inbox;
-    props = {segment: 'inbox'};
+    props = { segment: "inbox" };
   });
 
-  page("/reports", ctx => {
+  page("/reports", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -202,10 +213,10 @@
       return;
     }
     active = Reports;
-    props = {segment: 'reports'};
+    props = { segment: "reports" };
   });
-  
-  page("/marketing", ctx => {
+
+  page("/marketing", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -215,10 +226,10 @@
       return;
     }
     active = Marketing;
-    props = {segment: 'marketing'};
+    props = { segment: "marketing" };
   });
 
-  page("/past-sales", ctx => {
+  page("/past-sales", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -228,10 +239,10 @@
       return;
     }
     active = PastSales;
-    props = {segment: 'past-sales'};
+    props = { segment: "past-sales" };
   });
-  
-  page("/referrals", ctx => {
+
+  page("/referrals", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -241,10 +252,10 @@
       return;
     }
     active = Referrals;
-    props = {segment: 'referrals'};
+    props = { segment: "referrals" };
   });
-  
-  page("/team", ctx => {
+
+  page("/team", (ctx) => {
     if (!isAuthenticated()) {
       page.redirect("/login");
       return;
@@ -254,16 +265,16 @@
       return;
     }
     active = Team;
-    props = {segment: 'team'};
+    props = { segment: "team" };
   });
 
   page("*", () => page.redirect("/"));
 
   onMount(() => {
-    if (!location.pathname.startsWith("/agents")){
+    if (!location.pathname.startsWith("/agents")) {
       page.replace(location.pathname);
-    }else{
-      active = Agents
+    } else {
+      active = Agents;
     }
   });
 </script>
