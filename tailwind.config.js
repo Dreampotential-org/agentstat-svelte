@@ -1,5 +1,5 @@
 module.exports = {
-  content: [
+  purge: [
     './src/pages/**/*.{html,js,svelte}',
     './src/components/**/*.{html,js,svelte}',
   ],
