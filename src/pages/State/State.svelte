@@ -22,25 +22,31 @@
 </script>
 
 <div
-  class="bg-blue-100 py-16 flex justify-center items-center min-h-screen h-full"
+  style="background-color: rgb(219 234 254);padding-top: 4rem;padding-bottom: 4rem;display: flex;justify-content: center;align-items: center;min-height: 100vh;min-height: 100vh;"
 >
   <div>
-    <div class="flex justify-between items-center">
-      <p class="text-lg font-bold text-blue-700 mb-4">
+    <div
+      style="display: flex;justify-content: space-between;align-items: center;"
+    >
+      <p
+        style="font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;color: rgb(29 78 216);margin-bottom: 1rem;"
+      >
         Search for homes by Cities
       </p>
       <a
+        style="font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;color: rgb(29 78 216);margin-bottom: 1rem;cursor: pointer;"
         href={`/allhomes`}
-        class="text-lg font-bold text-blue-700 mb-4 cursor-pointer"
       >
         Go To Home
       </a>
     </div>
-    <div class="grid grid-cols-5 gap-2">
+    <div
+      style="display: grid;grid-template-columns: repeat(5, minmax(0, 1fr));gap: 0.5rem;"
+    >
       {#each allCities as city}
         <p
           on:click={() => gotoResult(city)}
-          class="text-sm text-blue-700 pr-20 cursor-pointer"
+          style="font-size: 0.875rem;line-height: 1.25rem;color: rgb(29 78 216);padding-right: 5rem;cursor: pointer;"
         >
           {city}
         </p>

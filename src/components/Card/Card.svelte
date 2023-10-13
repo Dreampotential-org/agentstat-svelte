@@ -20,88 +20,122 @@
 </script>
 
 <div
-  class="drop-shadow-2xl rounded-lg shadow bg-gray-800 border-gray-700 grid grid-cols-4 gap-1 place-items-start"
+  style="border-radius: 0.5rem;background-color: rgb(31 41 55);border-color: rgb(55 65 81);display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 0.25rem;place-items: start;"
 >
   {#key getImage}
-    <img class="rounded-l-lg h-80" src={getImage} alt="" />
+    <img
+      style="border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;height: 20rem;"
+      src={getImage}
+      alt=""
+    />
   {/key}
-  <div class="p-5 w-max h-full flex flex-col justify-start items-start">
+  <div
+    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
+  >
     <h5
-      class="mb-2 text-lh font-bold tracking-tight text-gray-900 dark:text-white"
+      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
     >
       House Type - {home_type}
     </h5>
-    <div class="flex flex-col w-full">
-      <p class="w-full text-sm mb-3 font-medium text-white">
+    <div style="display: flex;flex-direction: column;width: 100%;">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Address - {address_text}
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         City - {city}
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         List Price - ${list_price_int}.
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Sold Price - ${sold_price_int}.
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Sold in {days_on_market} Days.
       </p>
     </div>
     <p
-      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
     >
       Status - {status}
     </p>
   </div>
 
-  <div class="p-5 w-max h-full flex flex-col justify-start items-start">
+  <div
+    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
+  >
     <h5
-      class="mb-2 text-lh font-bold tracking-tight text-gray-900 dark:text-white"
+      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
     >
-      House Info - {home_type}
+      House Info
     </h5>
-    <div class="flex flex-col w-full">
-      <p class="w-full text-sm mb-3 font-medium text-white">
+    <div style="display: flex;flex-direction: column;width: 100%;">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Built in - {year_built}
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Beds - {beds}
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Baths - ${baths}.
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         S2l Ratio - ${s2l_ratio}.
       </p>
     </div>
     <p
-      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
     >
       Status - {status}
     </p>
   </div>
 
-  <div class="p-5 w-max h-full flex flex-col justify-start items-start">
+  <div
+    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
+  >
     <h5
-      class="mb-2 text-lh font-bold tracking-tight text-gray-900 dark:text-white"
+      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
     >
       Agent Name - {agent_full_name}
     </h5>
-    <div class="flex flex-col w-full">
-      <p class="w-full text-sm mb-3 font-medium text-white">
+    <div style="display: flex;flex-direction: column;width: 100%;">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Agent Brokerage Info - {agent_brokerage_info}
       </p>
 
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         ID - ${agent_id}.
       </p>
-      <p class="w-full text-sm mb-3 font-medium text-white">
+      <p
+        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      >
         Agent Brokerage Text - ${agent_brokerage_text}.
       </p>
     </div>
     <p
-      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
     >
       Status - {status}
     </p>
