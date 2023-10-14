@@ -16,6 +16,7 @@
   export let s2l_ratio = "";
   export let city = "";
   export let geo_location = [];
+  export let index;
   const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
@@ -23,11 +24,18 @@
   style="border-radius: 0.5rem;background-color: rgb(31 41 55);border-color: rgb(55 65 81);display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 0.25rem;place-items: start;"
 >
   {#key getImage}
-    <img
-      style="border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;height: 20rem;"
-      src={getImage}
-      alt=""
-    />
+    <div style="display: flex;align-items: center;gap: 0.5rem;">
+      <p
+        style="color:white;font-weight: 700;font-size: 1.25rem;line-height: 1.75rem;"
+      >
+        #{index + 1}
+      </p>
+      <img
+        style="border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;height: 20rem; padding: 10px 0;"
+        src={getImage}
+        alt=""
+      />
+    </div>
   {/key}
   <div
     style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"

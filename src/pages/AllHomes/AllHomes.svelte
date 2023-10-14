@@ -1,4 +1,5 @@
 <script>
+  import "./AllHomes.css";
   import page from "page";
   import { onMount } from "svelte";
   import { loadHomes, loadStates } from "../../lib/api/allhomes";
@@ -18,8 +19,9 @@
 
   onMount(async () => {
     isLoading = true;
+    localStorage.setItem("topOrBottom", $topOrBottom);
     let resultJson = await loadHomes();
-    searchedData = [...resultJson];
+    searchedData = [...resultJson.slice(0, 10)];
     isLoading = false;
     let resultStates = await loadStates();
     allStates = [...Object.entries(resultStates.allStates)];
@@ -32,7 +34,7 @@
     $city = ac?.city;
     $state = ac?.state;
     let searchResultJson = await loadHomes();
-    searchedData = [...searchResultJson];
+    searchedData = [...searchResultJson.slice(0, 10)];
     isLoading = false;
   };
 
@@ -50,7 +52,7 @@
       $topOrBottom = "top_ten";
     }
     let newResultJson = await loadHomes();
-    searchedData = [...newResultJson];
+    searchedData = [...newResultJson.slice(0, 10)];
     isLoading = false;
   };
 
@@ -58,7 +60,7 @@
     const url = `${baseURL}city-search/` + encodeURIComponent(e.target.value);
     const response = await fetch(url);
     const searchData = await response.json();
-    searchResults = [...searchData];
+    searchResults = [...searchData.slice(0, 10)];
     searchResults.map((_, index) => {
       searchGap += 2.8;
       searchGapArray = [...searchGapArray, `bottom:-${searchGap}rem`];
@@ -68,23 +70,19 @@
 </script>
 
 {#key searchedData}
-  <div
-    style="display: flex;flex-direction: column;padding-left: 40px;padding-right: 40px;background-color: rgb(249 250 251)"
-  >
-    <div
-      style="display: grid;gap: 1rem;grid-template-columns: repeat(9, minmax(0, 1fr));margin-top:40px;margin-bottom:40px;padding: 1rem;border-radius: 0.375rem; background-color: rgb(55 65 81);align-items: center;"
-    >
+  <div class="allHome__nav">
+    <div class="allHome__nav__child">
       <div
+        class="allHome__nav__child__header"
         on:click={() => page.redirect("/allhomes")}
-        style="font-size:24px;line-height:32px;font-weight: 700;color:white;grid-column: span 5 / span 5;cursor: pointer;"
       >
         Top 10 {$topOrBottom === "top_ten" ? "Highest" : "Lowest"} priced homes sold
-        in Your City
+        in City {$city}
       </div>
       <button
+        class="allHome__nav__child__button"
         on:click={changeType}
         type="submit"
-        style="font-weight: 700;font-size:18px;line-height:28px;cursor: pointer;grid-column: span 2 / span 2;color: rgb(96 165 250);"
       >
         Check {$topOrBottom === "top_ten" ? "Bottom Ten" : "Top Ten"}
       </button>
@@ -132,8 +130,8 @@
         </div>
       {:else}
         <div style="display: flex;flex-direction: column;gap: 1.5rem;">
-          {#each searchedData as house}
-            <Card {...house} />
+          {#each searchedData as house, index}
+            <Card {index} {...house} />
           {/each}
         </div>
       {/if}
