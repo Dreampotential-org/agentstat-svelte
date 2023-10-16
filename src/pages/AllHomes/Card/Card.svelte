@@ -17,11 +17,6 @@
   export let city = "";
   export let geo_location = [];
   export let index;
-
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  }
-
   const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
@@ -66,12 +61,12 @@
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
       >
-        List Price - ${numberWithCommas(list_price_int)}.
+        List Price - ${list_price_int}.
       </p>
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
       >
-        Sold Price - ${numberWithCommas(sold_price_int)}.
+        Sold Price - ${sold_price_int}.
       </p>
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
@@ -108,7 +103,7 @@
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
       >
-        Baths - {baths}.
+        Baths - ${baths}.
       </p>
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
@@ -124,7 +119,7 @@
     <h5
       style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
     >
-      {agent_full_name}
+      Agent Name - {agent_full_name}
     </h5>
     <div style="display: flex;flex-direction: column;width: 100%;">
       <p
@@ -136,12 +131,12 @@
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
       >
-        ID - {agent_id}.
+        ID - ${agent_id}.
       </p>
       <p
         style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
       >
-        Agent Brokerage Text - {agent_brokerage_text}.
+        Agent Brokerage Text - ${agent_brokerage_text}.
       </p>
     </div>
   </div>
