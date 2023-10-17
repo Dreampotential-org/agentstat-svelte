@@ -46,9 +46,12 @@
       <p p class="mb-3 overflow-hidden pr-7 text-lg font-semibold sm:text-xl">
         {address_text}
       </p>
-      <p class="overflow-hidden pr-7 text-sm">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna .
+      <p
+        class="overflow-hidden pr-7 text-sm flex flex-row gap-5 font-semibold text-gray-700"
+      >
+        <li class="bg-gray-300 rounded-xl px-4 py-1">Built in {year_built}</li>
+        <li class="bg-gray-300 rounded-xl px-4 py-1">Beds {beds}</li>
+        <li class="bg-gray-300 rounded-xl px-4 py-1">Baths {baths}</li>
       </p>
 
       <div
@@ -97,127 +100,6 @@
           </span>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div
-  style="border-radius: 0.5rem;background-color: rgb(31 41 55);border-color: rgb(55 65 81);display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 0.25rem;place-items: center; justify-content:center;"
->
-  {#key getImage}
-    <div
-      style="display: flex;align-items: center;gap: 0.5rem;justify-content:center; padding-left:2px;"
-    >
-      <p
-        style="color:white;font-weight: 700;font-size: 1.25rem;line-height: 1.75rem;"
-      >
-        #{index + 1}
-      </p>
-      <img
-        style="border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;height: 20rem; padding: 10px 0;"
-        src={getImage}
-        alt=""
-      />
-    </div>
-  {/key}
-  <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
-  >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
-    >
-      House Type - {home_type}
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Address - {address_text}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        City - {city}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        List Price - ${numberWithCommas(list_price_int)}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Sold Price - ${numberWithCommas(sold_price_int)}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Sold in {days_on_market} Days.
-      </p>
-    </div>
-    <p
-      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
-    >
-      Status - {status}
-    </p>
-  </div>
-
-  <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
-  >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
-    >
-      House Info
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Built in - {year_built}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Beds - {beds}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Baths - {baths}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        S2l Ratio - ${s2l_ratio}.
-      </p>
-    </div>
-  </div>
-
-  <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
-  >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
-    >
-      {agent_full_name}
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Agent Brokerage Info - {agent_brokerage_info}
-      </p>
-
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        ID - {agent_id}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Agent Brokerage Text - {agent_brokerage_text}.
-      </p>
     </div>
   </div>
 </div>
