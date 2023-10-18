@@ -25,71 +25,157 @@
   const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
-<div class="m-5">
+<div style="margin: 1.25rem" class="m-5">
   <div
-    class="mx-auto grid max-w-screen-xl grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg"
+    style="margin-left: auto; border-radius: 0.5rem;border-width: 1px;padding-top: 2rem/* 32px */;padding-bottom: 2rem/* 32px */;
+  margin-right: auto;display: grid; max-width: 1280px;grid-template-columns: repeat(12, minmax(0, 1fr));--tw-space-x-reverse: 0;
+  margin-right: calc(2rem/* 32px */ * var(--tw-space-x-reverse));--tw-text-opacity: 1;color: rgb(55 65 81 / var(--tw-text-opacity));--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); margin-left: calc(2rem/* 32px */ * calc(1 - var(--tw-space-x-reverse)));overflow: hidden;"
   >
     <span
-      class="order-2 col-span-4 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4 no-underline"
+      style="grid-column: 1/4;margin-top: 1rem/* 16px */;text-align: left;--tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));"
     >
-      <div class="group relative h-52 w-60 overflow-hidden flex gap-4">
-        <p class="font-semibold text-gray-600">#{index + 1}</p>
+      <div
+        style="position: relative;height: 13rem/* 208px */;width: 15rem/* 240px */;overflow: hidden;display: flex;gap: 1rem/* 16px */;"
+      >
+        <p
+          style="font-weight: 600;--tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity));"
+        >
+          #{index + 1}
+        </p>
         <img
           src={getImage}
           alt=""
-          class="h-full w-full object-cover text-gray-700 rounded-lg"
+          style="height: 100%;width: 100%;object-fit: cover;border-radius: 0.5rem/* 8px */;--tw-text-opacity: 1;
+          color: rgb(55 65 81 / var(--tw-text-opacity));"
         />
       </div>
     </span>
-    <div class="col-span-8 flex flex-col gap-2 pr-8 text-left sm:pl-4">
-      <div class="flex gap-4">
-        <div class="text-lg font-medium text-gray-500">
+    <div
+      style="grid-column: 5/12;display: flex;flex-direction: column;gap: 0.5rem/* 8px */;padding-right: 2rem/* 32px */;text-align: left;"
+    >
+      <div style="display: flex;gap: 1rem/* 16px */;">
+        <div
+          style="font-weight: 500;--tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));font-size: 1.125rem/* 18px */;line-height: 1.75rem/* 28px */;"
+        >
           Price(List/Sold) :<span
-            class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900"
+            style="margin-left: 0.5rem/* 8px */;margin-right: 0.75rem/* 12px */;border-radius: 9999px;--tw-bg-opacity: 1;
+            background-color: rgb(219 234 254 / var(--tw-bg-opacity));padding-left: 0.5rem/* 8px */;padding-top: 0.125rem/* 2px */;
+            padding-bottom: 0.125rem/* 2px */;--tw-text-opacity: 1;
+            color: rgb(30 58 138 / var(--tw-text-opacity));
+            padding-right: 0.5rem/* 8px */;"
             >${numberWithCommas(list_price_int)}/ ${numberWithCommas(
               sold_price_int
             )}</span
           >
         </div>
       </div>
-      <p p class="mb-3 overflow-hidden pr-7 text-md font-semibold sm:text-md">
+      <p
+        style="margin-bottom: 0.75rem/* 12px */;overflow: hidden;padding-right: 1.75rem/* 28px */;font-weight: 600; font-size: 1rem; /* 16px */
+      line-height: 1.5rem; /* 24px */"
+      >
         {address_text}
         {state}
         {zipcode}
       </p>
       <p
-        class="overflow-hidden pr-7 text-sm flex flex-row gap-5 font-semibold text-gray-700"
+        style="overflow: hidden;padding-right: 1.75rem/* 28px */;font-size: 0.875rem/* 14px */;
+      line-height: 1.25rem/* 20px */;display: flex;flex-direction: row;gap: 1.25rem/* 20px */;font-weight: 600; --tw-text-opacity: 1;
+      color: rgb(55 65 81 / var(--tw-text-opacity));"
       >
-        <li class="bg-gray-300 rounded-xl px-4 py-1">Built in {year_built}</li>
-        <li class="bg-gray-300 rounded-xl px-4 py-1">Beds {beds}</li>
-        <li class="bg-gray-300 rounded-xl px-4 py-1">Baths {baths}</li>
-        <li class="bg-gray-300 rounded-xl px-4 py-1">
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Built in {year_built}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Beds {beds}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Baths {baths}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
           {home_type.replace("_", " ")}
         </li>
       </p>
 
       <div
-        class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2"
+        style="display: flex; 
+            margin-top: 1.25rem; 
+            margin-top: 0.75rem; 
+            margin-top: 0.875rem; 
+            font-size: 0.875rem;
+            line-height: 1.25rem; 
+            font-weight: 500; 
+            color: #6B7280;
+            gap: 1rem; 
+            align-items: center;"
       >
         <div class="">
-          Sold with: <span class="font-semibold text-black"
-            >{agent_full_name}</span
+          Sold with: <span
+            style="font-weight: 600; 
+          color: #000000; ">{agent_full_name}</span
           >
         </div>
         <div class="">
-          Brokerage: <span class="font-semibold text-black"
-            >{agent_brokerage_info}</span
+          Brokerage: <span
+            style="font-weight: 600; 
+          color: #000000; ">{agent_brokerage_info}</span
           >
         </div>
         <div>
           {#if agent_s3_image}
             <img
               src={agent_s3_image}
-              class="h-12 w-12 rounded-full flex items-center justify-center"
+              style="display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              border-radius: 9999px; 
+              width: 3rem; 
+              height: 3rem; 
+              "
             />
           {:else}
             <div
-              class="h-12 w-12 bg-gray-500 rounded-full text-white text-[8px] flex items-center justify-center"
+              style="display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              border-radius: 9999px; 
+              width: 3rem; 
+              height: 3rem; 
+              color: #ffffff; 
+              background-color: #6B7280; 
+              font-size: 8px;
+              "
             >
               No Image
             </div>
@@ -98,15 +184,30 @@
       </div>
 
       <div
-        class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2"
+        style="display: flex; 
+        margin-top: 1.25rem; 
+        margin-top: 0.75rem; 
+        margin-top: 0.875rem; 
+        font-size: 0.875rem;
+        line-height: 1.25rem; 
+        font-weight: 500; 
+        color: #6B7280; "
       >
         <div class="">
           Status :<span
-            class={`ml-2 mr-3 rounded-full  px-2 py-0.5 ${
-              status === "Sold"
-                ? "text-red-900 bg-red-100"
-                : "text-green-900 bg-green-100"
-            }`}
+            style={`padding-top: 0.125rem;
+          padding-bottom: 0.125rem; 
+          padding-left: 0.5rem;
+          padding-right: 0.5rem; 
+          margin-left: 0.5rem; 
+          margin-right: 0.75rem; 
+          border-radius: 9999px; 
+          ${
+            status === "Sold"
+              ? "color: #7F1D1D; background-color: #FEE2E2; "
+              : "color: #064E3B; background-color: #D1FAE5; "
+          }
+          `}
           >
             {status}.
           </span>
@@ -114,7 +215,15 @@
 
         <div class="">
           Sold in :<span
-            class="ml-2 mr-3 rounded-full bg-yellow-100 px-2 py-0.5 text-green-900"
+            style="padding-top: 0.125rem;
+            padding-bottom: 0.125rem; 
+            padding-left: 0.5rem;
+            padding-right: 0.5rem; 
+            margin-left: 0.5rem; 
+            margin-right: 0.75rem; 
+            border-radius: 9999px; 
+            color: #064E3B; 
+            background-color: #FEF3C7; "
           >
             {days_on_market} Days.
           </span>
