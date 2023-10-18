@@ -31,19 +31,29 @@
   >
     <a
       href="#"
-      class="order-2 col-span-3 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4"
+      class="order-2 col-span-3 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4 no-underline"
     >
-      <div class="group relative h-52 w-52 overflow-hidden rounded-lg">
+      <div class="group relative h-52 w-60 overflow-hidden flex gap-4">
+        <p class="font-semibold text-gray-600">#{index + 1}</p>
         <img
           src={getImage}
           alt=""
-          class="h-full w-full object-cover text-gray-700"
+          class="h-full w-full object-cover text-gray-700 rounded-lg"
         />
       </div>
     </a>
-    <div class="col-span-9 flex flex-col pr-8 text-left sm:pl-4">
-      <h3 class="text-sm text-gray-600">{home_type.replace("_", " ")}</h3>
-      <p p class="mb-3 overflow-hidden pr-7 text-lg font-semibold sm:text-xl">
+    <div class="col-span-9 flex flex-col gap-2 pr-8 text-left sm:pl-4">
+      <div class="flex gap-4">
+        <div class="text-lg font-medium text-gray-500">
+          Price(List/Sold) :<span
+            class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900"
+            >${numberWithCommas(list_price_int)}/ ${numberWithCommas(
+              sold_price_int
+            )}</span
+          >
+        </div>
+      </div>
+      <p p class="mb-3 overflow-hidden pr-7 text-md font-semibold sm:text-md">
         {address_text}
       </p>
       <p
@@ -52,19 +62,21 @@
         <li class="bg-gray-300 rounded-xl px-4 py-1">Built in {year_built}</li>
         <li class="bg-gray-300 rounded-xl px-4 py-1">Beds {beds}</li>
         <li class="bg-gray-300 rounded-xl px-4 py-1">Baths {baths}</li>
+        <li class="bg-gray-300 rounded-xl px-4 py-1">
+          {home_type.replace("_", " ")}
+        </li>
       </p>
 
       <div
         class="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2"
       >
         <div class="">
-          Agent ID : <span class="font-semibold text-black"> {agent_id}</span>
+          Sold with: <span class="font-semibold text-black"
+            >{agent_full_name}</span
+          >
         </div>
         <div class="">
-          Name: <span class="font-semibold text-black">{agent_full_name}</span>
-        </div>
-        <div class="">
-          Info: <span class="font-semibold text-black"
+          Brokerage: <span class="font-semibold text-black"
             >{agent_brokerage_info}</span
           >
         </div>
@@ -84,14 +96,7 @@
             {status}.
           </span>
         </div>
-        <div class="">
-          Price(List/Sold) :<span
-            class="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900"
-            >${numberWithCommas(list_price_int)}/ ${numberWithCommas(
-              sold_price_int
-            )}</span
-          >
-        </div>
+
         <div class="">
           Sold in :<span
             class="ml-2 mr-3 rounded-full bg-yellow-100 px-2 py-0.5 text-green-900"
