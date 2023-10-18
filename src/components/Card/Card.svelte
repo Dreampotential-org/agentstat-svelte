@@ -8,7 +8,7 @@
   export let sold_price_int = "";
   export let days_on_market = "";
   export let agent_brokerage_info = "";
-  export let agent_id = "";
+  export let zipcode = "";
   export let agent_brokerage_text = "";
   export let year_built = "";
   export let beds = "";
@@ -54,6 +54,7 @@
       </div>
       <p p class="mb-3 overflow-hidden pr-7 text-md font-semibold sm:text-md">
         {address_text}
+        {zipcode}
       </p>
       <p
         class="overflow-hidden pr-7 text-sm flex flex-row gap-5 font-semibold text-gray-700"

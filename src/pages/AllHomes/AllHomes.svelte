@@ -28,6 +28,7 @@
     // localStorage.setItem("topOrBottom", $topOrBottom);
     let resultJson = await loadHomes("top_ten", stateQuery, cityQuery);
     searchedData = [...resultJson.slice(0, 10)];
+
     let resultLowJson = await loadHomes("bottom_ten", stateQuery, cityQuery);
     searchedLowData = [...resultLowJson.slice(0, 10)];
     isLoading = false;
