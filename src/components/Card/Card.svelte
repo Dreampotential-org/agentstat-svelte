@@ -29,8 +29,7 @@
   <div
     class="mx-auto grid max-w-screen-xl grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg"
   >
-    <a
-      href="#"
+    <span
       class="order-2 col-span-3 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4 no-underline"
     >
       <div class="group relative h-52 w-60 overflow-hidden flex gap-4">
@@ -41,7 +40,7 @@
           class="h-full w-full object-cover text-gray-700 rounded-lg"
         />
       </div>
-    </a>
+    </span>
     <div class="col-span-9 flex flex-col gap-2 pr-8 text-left sm:pl-4">
       <div class="flex gap-4">
         <div class="text-lg font-medium text-gray-500">
