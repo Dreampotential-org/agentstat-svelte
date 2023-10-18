@@ -9,11 +9,11 @@
   export let days_on_market = "";
   export let agent_brokerage_info = "";
   export let zipcode = "";
-  export let agent_brokerage_text = "";
+  export let state = "";
   export let year_built = "";
   export let beds = "";
   export let baths = "";
-  export let s2l_ratio = "";
+  export let agent_s3_image = "";
   export let city = "";
   export let geo_location = [];
   export let index;
@@ -30,7 +30,7 @@
     class="mx-auto grid max-w-screen-xl grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg"
   >
     <span
-      class="order-2 col-span-3 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4 no-underline"
+      class="order-2 col-span-4 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4 no-underline"
     >
       <div class="group relative h-52 w-60 overflow-hidden flex gap-4">
         <p class="font-semibold text-gray-600">#{index + 1}</p>
@@ -41,7 +41,7 @@
         />
       </div>
     </span>
-    <div class="col-span-9 flex flex-col gap-2 pr-8 text-left sm:pl-4">
+    <div class="col-span-8 flex flex-col gap-2 pr-8 text-left sm:pl-4">
       <div class="flex gap-4">
         <div class="text-lg font-medium text-gray-500">
           Price(List/Sold) :<span
@@ -54,6 +54,7 @@
       </div>
       <p p class="mb-3 overflow-hidden pr-7 text-md font-semibold sm:text-md">
         {address_text}
+        {state}
         {zipcode}
       </p>
       <p
@@ -79,6 +80,20 @@
           Brokerage: <span class="font-semibold text-black"
             >{agent_brokerage_info}</span
           >
+        </div>
+        <div>
+          {#if agent_s3_image}
+            <img
+              src={agent_s3_image}
+              class="h-12 w-12 rounded-full flex items-center justify-center"
+            />
+          {:else}
+            <div
+              class="h-12 w-12 bg-gray-500 rounded-full text-white text-[8px] flex items-center justify-center"
+            >
+              No Image
+            </div>
+          {/if}
         </div>
       </div>
 

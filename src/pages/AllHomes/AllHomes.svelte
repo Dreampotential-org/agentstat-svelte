@@ -31,6 +31,7 @@
 
     let resultLowJson = await loadHomes("bottom_ten", stateQuery, cityQuery);
     searchedLowData = [...resultLowJson.slice(0, 10)];
+    console.log("searchedData", searchedLowData);
     isLoading = false;
     let resultStates = await loadStates();
     allStates = [...Object.entries(resultStates.allStates)];
