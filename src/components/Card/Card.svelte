@@ -37,18 +37,18 @@
     color: rgb(75 85 99 / var(--tw-text-opacity));"
     >
       <div
-        style="position: relative;height: 13rem/* 208px */;width: 15rem/* 240px */;overflow: hidden;display: flex;gap: 1rem/* 16px */;"
+        style="position: relative;height: 13rem/* 208px */;width: 18rem/* 240px */;overflow: hidden;display: flex;gap: 1rem/* 16px */;justify-content:space-evenly;"
       >
         <p
-          style="font-weight: 600;--tw-text-opacity: 1;
-        color: rgb(75 85 99 / var(--tw-text-opacity));"
+          style="font-weight: 800;--tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity));font-size:20px;"
         >
           #{index + 1}
         </p>
         <img
           src={getImage}
           alt=""
-          style="height: 100%;width: 100%;object-fit: cover;border-radius: 0.5rem/* 8px */;--tw-text-opacity: 1;
+          style="height: 100%;object-fit: cover;border-radius: 0.5rem/* 8px */;--tw-text-opacity: 1;
           color: rgb(55 65 81 / var(--tw-text-opacity));"
         />
       </div>
