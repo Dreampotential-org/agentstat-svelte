@@ -8,144 +8,227 @@
   export let sold_price_int = "";
   export let days_on_market = "";
   export let agent_brokerage_info = "";
-  export let agent_id = "";
-  export let agent_brokerage_text = "";
+  export let zipcode = "";
+  export let state = "";
   export let year_built = "";
   export let beds = "";
   export let baths = "";
-  export let s2l_ratio = "";
+  export let agent_s3_image = "";
   export let city = "";
   export let geo_location = [];
   export let index;
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
-<div
-  style="border-radius: 0.5rem;background-color: rgb(31 41 55);border-color: rgb(55 65 81);display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 0.25rem;place-items: start;"
->
-  {#key getImage}
-    <div style="display: flex;align-items: center;gap: 0.5rem;">
-      <p
-        style="color:white;font-weight: 700;font-size: 1.25rem;line-height: 1.75rem;"
-      >
-        #{index + 1}
-      </p>
-      <img
-        style="border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;height: 20rem; padding: 10px 0;"
-        src={getImage}
-        alt=""
-      />
-    </div>
-  {/key}
+<div style="margin: 1.25rem" class="m-5">
   <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
+    style="margin-left: auto; border-radius: 0.5rem;border-width: 1px;padding-top: 2rem/* 32px */;padding-bottom: 2rem/* 32px */;
+  margin-right: auto;display: grid; max-width: 1280px;grid-template-columns: repeat(12, minmax(0, 1fr));--tw-space-x-reverse: 0;
+  margin-right: calc(2rem/* 32px */ * var(--tw-space-x-reverse));--tw-text-opacity: 1;color: rgb(55 65 81 / var(--tw-text-opacity));--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); margin-left: calc(2rem/* 32px */ * calc(1 - var(--tw-space-x-reverse)));overflow: hidden;"
   >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
+    <span
+      style="grid-column: 1/4;margin-top: 1rem/* 16px */;text-align: left;--tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity));"
     >
-      House Type - {home_type}
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      <div
+        style="position: relative;height: 13rem/* 208px */;width: 15rem/* 240px */;overflow: hidden;display: flex;gap: 1rem/* 16px */;"
       >
-        Address - {address_text}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        City - {city}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        List Price - ${list_price_int}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Sold Price - ${sold_price_int}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Sold in {days_on_market} Days.
-      </p>
-    </div>
-    <p
-      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
+        <p
+          style="font-weight: 600;--tw-text-opacity: 1;
+        color: rgb(75 85 99 / var(--tw-text-opacity));"
+        >
+          #{index + 1}
+        </p>
+        <img
+          src={getImage}
+          alt=""
+          style="height: 100%;width: 100%;object-fit: cover;border-radius: 0.5rem/* 8px */;--tw-text-opacity: 1;
+          color: rgb(55 65 81 / var(--tw-text-opacity));"
+        />
+      </div>
+    </span>
+    <div
+      style="grid-column: 5/12;display: flex;flex-direction: column;gap: 0.5rem/* 8px */;padding-right: 2rem/* 32px */;text-align: left;"
     >
-      Status - {status}
-    </p>
-  </div>
-
-  <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
-  >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
-    >
-      House Info
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
+      <div style="display: flex;gap: 1rem/* 16px */;">
+        <div
+          style="font-weight: 500;--tw-text-opacity: 1;
+        color: rgb(107 114 128 / var(--tw-text-opacity));font-size: 1.125rem/* 18px */;line-height: 1.75rem/* 28px */;"
+        >
+          Price(List/Sold) :<span
+            style="margin-left: 0.5rem/* 8px */;margin-right: 0.75rem/* 12px */;border-radius: 9999px;--tw-bg-opacity: 1;
+            background-color: rgb(219 234 254 / var(--tw-bg-opacity));padding-left: 0.5rem/* 8px */;padding-top: 0.125rem/* 2px */;
+            padding-bottom: 0.125rem/* 2px */;--tw-text-opacity: 1;
+            color: rgb(30 58 138 / var(--tw-text-opacity));
+            padding-right: 0.5rem/* 8px */;"
+            >${numberWithCommas(list_price_int)}/ ${numberWithCommas(
+              sold_price_int
+            )}</span
+          >
+        </div>
+      </div>
       <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+        style="margin-bottom: 0.75rem/* 12px */;overflow: hidden;padding-right: 1.75rem/* 28px */;font-weight: 600; font-size: 1rem; /* 16px */
+      line-height: 1.5rem; /* 24px */"
       >
-        Built in - {year_built}
+        {address_text}
+        {state}
+        {zipcode}
       </p>
       <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+        style="overflow: hidden;padding-right: 1.75rem/* 28px */;font-size: 0.875rem/* 14px */;
+      line-height: 1.25rem/* 20px */;display: flex;flex-direction: row;gap: 1.25rem/* 20px */;font-weight: 600; --tw-text-opacity: 1;
+      color: rgb(55 65 81 / var(--tw-text-opacity));"
       >
-        Beds - {beds}
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Baths - ${baths}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        S2l Ratio - ${s2l_ratio}.
-      </p>
-    </div>
-    <p
-      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
-    >
-      Status - {status}
-    </p>
-  </div>
-
-  <div
-    style=" padding: 1.25rem;width: max-content;height: 100%;display: flex;flex-direction: column;justify-content: flex-start;align-items: flex-start;"
-  >
-    <h5
-      style="margin-bottom: 0.5rem;font-size: 1.125rem;line-height: 1.75rem;font-weight: 700;letter-spacing: -0.025em;color: rgb(17 24 39);color: rgb(255 255 255);"
-    >
-      Agent Name - {agent_full_name}
-    </h5>
-    <div style="display: flex;flex-direction: column;width: 100%;">
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
-      >
-        Agent Brokerage Info - {agent_brokerage_info}
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Built in {year_built}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Beds {beds}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          Baths {baths}
+        </li>
+        <li
+          style="padding-top: 0.25rem;
+        padding-bottom: 0.25rem; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        border-radius: 0.75rem; 
+        background-color: #D1D5DB; "
+        >
+          {home_type.replace("_", " ")}
+        </li>
       </p>
 
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+      <div
+        style="display: flex; 
+            margin-top: 1.25rem; 
+            margin-top: 0.75rem; 
+            margin-top: 0.875rem; 
+            font-size: 0.875rem;
+            line-height: 1.25rem; 
+            font-weight: 500; 
+            color: #6B7280;
+            gap: 1rem; 
+            align-items: center;"
       >
-        ID - ${agent_id}.
-      </p>
-      <p
-        style="width: 100%;font-size: 0.875rem;line-height: 1.25rem;margin-bottom: 0.75rem;font-weight: 500;color:white;"
+        <div class="">
+          Sold with: <span
+            style="font-weight: 600; 
+          color: #000000; ">{agent_full_name}</span
+          >
+        </div>
+        <div class="">
+          Brokerage: <span
+            style="font-weight: 600; 
+          color: #000000; ">{agent_brokerage_info}</span
+          >
+        </div>
+        <div>
+          {#if agent_s3_image}
+            <img
+              src={agent_s3_image}
+              style="display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              border-radius: 9999px; 
+              width: 3rem; 
+              height: 3rem; 
+              "
+            />
+          {:else}
+            <div
+              style="display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              border-radius: 9999px; 
+              width: 3rem; 
+              height: 3rem; 
+              color: #ffffff; 
+              background-color: #6B7280; 
+              font-size: 8px;
+              "
+            >
+              No Image
+            </div>
+          {/if}
+        </div>
+      </div>
+
+      <div
+        style="display: flex; 
+        margin-top: 1.25rem; 
+        margin-top: 0.75rem; 
+        margin-top: 0.875rem; 
+        font-size: 0.875rem;
+        line-height: 1.25rem; 
+        font-weight: 500; 
+        color: #6B7280; "
       >
-        Agent Brokerage Text - ${agent_brokerage_text}.
-      </p>
+        <div class="">
+          Status :<span
+            style={`padding-top: 0.125rem;
+          padding-bottom: 0.125rem; 
+          padding-left: 0.5rem;
+          padding-right: 0.5rem; 
+          margin-left: 0.5rem; 
+          margin-right: 0.75rem; 
+          border-radius: 9999px; 
+          ${
+            status === "Sold"
+              ? "color: #7F1D1D; background-color: #FEE2E2; "
+              : "color: #064E3B; background-color: #D1FAE5; "
+          }
+          `}
+          >
+            {status}.
+          </span>
+        </div>
+
+        <div class="">
+          Sold in :<span
+            style="padding-top: 0.125rem;
+            padding-bottom: 0.125rem; 
+            padding-left: 0.5rem;
+            padding-right: 0.5rem; 
+            margin-left: 0.5rem; 
+            margin-right: 0.75rem; 
+            border-radius: 9999px; 
+            color: #064E3B; 
+            background-color: #FEF3C7; "
+          >
+            {days_on_market} Days.
+          </span>
+        </div>
+      </div>
     </div>
-    <p
-      style="cursor:pointer;display: inline-flex;align-items: center;padding-left: 0.75rem;padding-right: 0.75rem;border-radius: 0.5rem;padding-top: 0.5rem;padding-bottom: 0.5rem;font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;text-align: center;color:white;background-color: rgb(29 78 216);"
-    >
-      Status - {status}
-    </p>
   </div>
 </div>

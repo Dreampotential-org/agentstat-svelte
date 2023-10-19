@@ -16,9 +16,12 @@ export async function loadStates() {
 	return { allStates };
 }
 
-export async function loadHomes() {
+export async function loadHomes(topOrBottom,stateQ,cityQ) {
+
+    let tempState = stateQ === undefined ? get(state) :stateQ;
+    let tempCity = cityQ === undefined ? get(city) :cityQ;
     let allResults = await fetch(
-        `${baseUrl}${get(topOrBottom)}/state/${get(state)}/city/${get(city)}`,
+        `${baseUrl}${topOrBottom}/state/${tempState}/city/${tempCity}`,
         {
           method: "GET",
           headers: {

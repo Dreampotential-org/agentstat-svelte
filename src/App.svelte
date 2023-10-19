@@ -60,9 +60,9 @@
     props = {};
   });
 
-  page("/allhomes", (ctx) => {
+  page("/allhomes/:stateQuery?/:cityQuery?", (ctx) => {
     active = AllHomes;
-    props = {};
+    props = ctx.params;
   });
 
   page("/state/:stateName", (ctx) => {
