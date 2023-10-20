@@ -137,7 +137,7 @@
           <p class="text-2xl font-bold text-blue-500">No Data</p>
         </div>
       {:else}
-        <div style="display: flex;flex-direction: column;gap: 1.5rem;">
+        <div style="display: flex;flex-direction: column;gap: 1.5rem;justify-content: center;align-items: center;width:100%;">
           {#each searchedData as house, index}
             <Card {index} {...house} />
           {/each}

@@ -25,23 +25,23 @@
   const getImage = `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${geo_location[1]},${geo_location[0]}&fov=80&heading=70&pitch=0&key=${GOOGLE_KEY}`;
 </script>
 
-<div style="margin: 1.25rem" class="m-5">
+<div style="margin: 1.25rem auto;width:100%;" class="m-5">
   <div
-    style="margin-left: auto; border-radius: 0.5rem;border-width: 1px;padding-top: 2rem/* 32px */;padding-bottom: 2rem/* 32px */;
-  margin-right: auto;display: grid; max-width: 1280px;grid-template-columns: repeat(12, minmax(0, 1fr));--tw-space-x-reverse: 0;
+    style="margin-left: auto; border-radius: 0.5rem;border-width: 1px;padding-top: 1rem/* 32px */;padding-bottom: 1rem/* 32px */;width:100%;
+  margin-right: auto;display: flex;flex-direction:column;justify-content: center;align-items:center;gap:12px;--tw-space-x-reverse: 0;
   margin-right: calc(2rem/* 32px */ * var(--tw-space-x-reverse));--tw-text-opacity: 1;color: rgb(55 65 81 / var(--tw-text-opacity));--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); margin-left: calc(2rem/* 32px */ * calc(1 - var(--tw-space-x-reverse)));overflow: hidden;"
   >
     <span
-      style="grid-column: 1/4;margin-top: 1rem/* 16px */;text-align: left;--tw-text-opacity: 1;
+      style="margin-top: 1rem/* 16px */;text-align: left;--tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));"
     >
       <div
-        style="position: relative;height: 13rem/* 208px */;width: 18rem/* 240px */;overflow: hidden;display: flex;gap: 1rem/* 16px */;justify-content:space-evenly;"
+        style="position: relative;height: 16rem/* 208px */;width: 13rem/* 240px */;overflow: hidden;display: flex;flex-direction:column;gap: 1rem/* 16px */;justify-content:space-evenly;align-items:center;"
       >
         <p
           style="font-weight: 800;--tw-text-opacity: 1;
-        color: rgb(75 85 99 / var(--tw-text-opacity));font-size:20px;"
+        color: rgb(75 85 99 / var(--tw-text-opacity));font-size:32px;"
         >
           #{index + 1}
         </p>
@@ -54,7 +54,7 @@
       </div>
     </span>
     <div
-      style="grid-column: 5/12;display: flex;flex-direction: column;gap: 0.5rem/* 8px */;padding-right: 2rem/* 32px */;text-align: left;"
+      style="display: flex;flex-direction: column;gap: 0.5rem/* 8px */;justify-content: center;align-items:center;"
     >
       <div style="display: flex;gap: 1rem/* 16px */;">
         <div
