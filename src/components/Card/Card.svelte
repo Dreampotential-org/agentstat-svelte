@@ -14,9 +14,10 @@
   export let beds = "";
   export let baths = "";
   export let agent_s3_image = "";
-  export let city = "";
+  export let agent_id = "";
   export let geo_location = [];
   export let index;
+  import page from "page";
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -140,12 +141,12 @@
             gap: 1rem; 
             align-items: center;"
       >
-        <div class="">
+        <a style="text-decoration: none;" href={`https://agentstat.com/profile/${agent_id}`} class="">
           Sold with: <span
             style="font-weight: 600; 
-          color: #000000; ">{agent_full_name}</span
+          color: #000000;cursor:pointer;">{agent_full_name}</span
           >
-        </div>
+        </a>
         <div class="">
           Brokerage: <span
             style="font-weight: 600; 

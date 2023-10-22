@@ -18,19 +18,19 @@
     .allHome__nav__child{
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         margin-top:40px;
         margin-bottom:40px;
         padding: 1rem;
         border-radius: 0.375rem; 
-        background-color: rgb(55 65 81);
+        background-color: rgb(176, 206, 255);
         align-items: center;
     }
     .allHome__nav__child__header{
         font-size:24px;
         line-height:32px;
         font-weight: 700;
-        color:white;
+        color: rgb(58, 58, 58);
         grid-row: span 1 / span 1;
         cursor: pointer;
     }
@@ -39,13 +39,13 @@
 @media (min-width: 1500px) {
     .allHome__nav__child{
         display: grid;
-        gap: 1rem;
+        gap: 1.5rem;
         grid-template-columns: repeat(9, minmax(0, 1fr));
         margin-top:40px;
         margin-bottom:40px;
         padding: 1rem;
         border-radius: 0.375rem; 
-        background-color: rgb(55 65 81);
+        background-color: rgb(176, 206, 255);
         align-items: center;
     }
 
@@ -53,7 +53,7 @@
         font-size:24px;
         line-height:32px;
         font-weight: 700;
-        color:white;
+        color:rgb(58, 58, 58);
         grid-column: span 5 / span 5;
         cursor: pointer;
     }

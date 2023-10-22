@@ -1,5 +1,6 @@
 <script>
   import "./AllHomes.css";
+  // import logo from "../../../public/images/logo-beta.png";
   import page from "page";
   import { onMount } from "svelte";
   import { loadHomes, loadStates } from "../../lib/api/allhomes";
@@ -28,7 +29,7 @@
     // localStorage.setItem("topOrBottom", $topOrBottom);
     let resultJson = await loadHomes("top_ten", stateQuery, cityQuery);
     searchedData = [...resultJson.slice(0, 10)];
-
+    console.log('searchedLowData',searchedLowData);
     let resultLowJson = await loadHomes("bottom_ten", stateQuery, cityQuery);
     searchedLowData = [...resultLowJson.slice(0, 10)];
     console.log("searchedData", searchedLowData);
@@ -95,6 +96,7 @@
   {:else}
     <div class="allHome__nav">
       <div class="allHome__nav__child">
+        <img src={"/images/logo.png"} alt="logo" style="height: 32px;width:100%;" />
         <div class="allHome__nav__child__header">
           Top 10 Highest priced homes sold in City {tempCity}
         </div>
